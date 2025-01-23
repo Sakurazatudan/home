@@ -7,7 +7,7 @@ body {
 }
 
 header {
-            background-image: url('header.jpg'); /* ヘッダー画像のURL */
+            background-image: url('banner.jpg'); /* ヘッダー画像のURL */
             background-size: cover; /* 画像を全体にフィット */
             background-position: center; /* 画像を中央に配置 */
             height: 200px; /* ヘッダーの高さ */
