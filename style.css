@@ -7,10 +7,16 @@ body {
 }
 
 header {
-    background-color: #ffcccc;
-    padding: 20px;
-    text-align: center;
-}
+            background-image: url('header.jpg'); /* ヘッダー画像のURL */
+            background-size: cover; /* 画像を全体にフィット */
+            background-position: center; /* 画像を中央に配置 */
+            height: 200px; /* ヘッダーの高さ */
+            display: flex;
+            align-items: center; /* 中央寄せ */
+            justify-content: center; /* 中央寄せ */
+            color: white;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* 文字に影を付ける */
+        }
 
 header h1 {
     margin: 0;
