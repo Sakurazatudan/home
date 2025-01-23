@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌸さくら雑談王国 - 管理者専用🌸</title>
+    <link rel="stylesheet" href="style.css"> <!-- 外部CSSファイルの参照 -->
+</head>
+<body>
+    <header>
+        <h1>🌸さくら雑談王国 - 管理者専用🌸</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">ホーム</a></li>
+            <li><a href="news.html">お知らせ</a></li>
+            <li><a href="adminonly.html">管理者専用</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div id="login-form">
+            <h2>ログイン</h2>
+            <p>管理者のみアクセス可能です。IDとパスワードを入力してください。</p>
+            <input type="text" id="admin-id" placeholder="管理者ID">
+            <input type="password" id="password" placeholder="パスワード">
+            <button onclick="checkLogin()">ログイン</button>
+        </div>
+
+        <div id="admin-content" class="hidden-content">
+            <h2>ようこそ、管理者！</h2>
+            <p>ここには管理者専用情報があります。</p>
+            <ul>
+                <li>📊 サーバーステータスの確認</li>
+                <li>👥 ユーザー管理</li>
+                <li>⚙️ サーバー設定変更</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 🌸さくら雑談王国. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // 簡易ログイン認証
+        function checkLogin() {
+            const adminId = document.getElementById("admin-id").value;
+            const password = document.getElementById("password").value;
+            const adminContent = document.getElementById("admin-content");
+            const loginForm = document.getElementById("login-form");
+
+            const correctId = "Sakurazatudan";
+            const correctPassword = "sakurasaku";
+
+            if (adminId === correctId && password === correctPassword) {
+                alert("ログイン成功！");
+                loginForm.style.display = "none";
+                adminContent.classList.add("visible");
+            } else {
+                alert("IDまたはパスワードが間違っています。");
+            }
+        }
+    </script>
+</body>
+</html>
