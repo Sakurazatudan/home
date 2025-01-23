@@ -3,53 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🌸さくら雑談王国🌸 - ログイン</title>
+    <title>🌸さくら雑談王国🌸</title>
     <link rel="stylesheet" href="style.css"> <!-- 外部CSSファイルの参照 -->
-        <link rel="icon" href="favicon.ico" type="image/ico">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1E88T907Y4"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-1E88T907Y4');
-</script>
-
 </head>
 <body>
-    <!-- ログインフォーム -->
-    <div id="login-form">
-        <h1>ログイン</h1>
-        <p>このページを表示するにはログインが必要です。</p>
-        <input type="text" id="admin-id" placeholder="管理者ID">
-        <input type="password" id="password" placeholder="パスワード">
-        <button onclick="checkLogin()">ログイン</button>
+    <div id="login-popup" class="hidden">
+        <div class="popup-content">
+            <h2>ログイン</h2>
+            <p>このサイトを表示するにはログインが必要です。</p>
+            <input type="text" id="admin-id" placeholder="管理者ID">
+            <input type="password" id="password" placeholder="パスワード">
+            <button onclick="checkLogin()">ログイン</button>
+            <button onclick="cancelLogin()">キャンセル</button>
+        </div>
     </div>
 
     <!-- メインコンテンツ -->
     <div id="main-content" class="hidden">
         <h1>🌸さくら雑談王国🌸</h1>
-        <p>admin only pages</p>
-        <li><a href="https://www.dropbox.com/scl/fo/9dgxqhx7awnc0ddsqi6jq/APaY57CbFy_N-CHlZ8s7TfQ?rlkey=42or5j7a4xdfiwd1j7f0u3lm0&st=w4vadqk6&dl=0">dropbox</a></li>
+        <p>ようこそ！ここにサーバーの魅力やお知らせを表示します。</p>
     </div>
 
     <script>
+        // ページ読み込み時にポップアップを表示
+        window.onload = function() {
+            document.getElementById("login-popup").classList.remove("hidden");
+        }
+
+        // ログイン認証
         function checkLogin() {
             const adminId = document.getElementById("admin-id").value;
             const password = document.getElementById("password").value;
-            
-            // ここでログインチェックを実行する（サーバーサイド連携が必要）
-            // 仮に固定のIDとパスワードでチェック
-            const correctId = "Sakurazatudanoukoku";
-            const correctPassword = "Sakurasakusaku";
+
+            const correctId = "sakurazatudanoukoku";
+            const correctPassword = "sakurasakusaku";
 
             if (adminId === correctId && password === correctPassword) {
                 // ログイン成功
-                document.getElementById("login-form").style.display = "none";
+                document.getElementById("login-popup").classList.add("hidden");
                 document.getElementById("main-content").classList.remove("hidden");
             } else {
                 // ログイン失敗
                 alert("IDまたはパスワードが間違っています。");
             }
+        }
+
+        // キャンセルボタンでポップアップを閉じる
+        function cancelLogin() {
+            alert("ログインがキャンセルされました。");
         }
     </script>
 </body>
