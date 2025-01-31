@@ -15,6 +15,12 @@
     z-index: 1000;
     transition: opacity 1s ease-in-out;
 }
+
+/* フェードアウト後に非表示にする */
+.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
 body {
     font-family: Arial, sans-serif;
     margin: 0;
