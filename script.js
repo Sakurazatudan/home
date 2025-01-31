@@ -1,9 +1,12 @@
 window.onload = function() {
+    let welcomeScreen = document.getElementById("welcome-screen");
+    let mainContent = document.getElementById("main-content");
+
     setTimeout(function() {
-        document.getElementById("welcome-screen").style.opacity = "0";
+        welcomeScreen.classList.add("fade-out"); // フェードアウト
         setTimeout(function() {
-            document.getElementById("welcome-screen").style.display = "none";
-            document.getElementById("main-content").classList.remove("hidden");
+            welcomeScreen.style.display = "none"; // 完全に非表示
+            mainContent.classList.remove("hidden"); // メインコンテンツ表示
         }, 1000); // フェードアウト時間
     }, 2000); // ウェルカムスクリーンの表示時間
 };
