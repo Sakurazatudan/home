@@ -29,51 +29,8 @@
             </ul>
         </nav>
     </header>
-    <script>
-        function sendToDiscord(event) {
-            event.preventDefault(); // フォームのデフォルト送信を防ぐ
 
-            const name = document.getElementById("name").value;
-            const email = document.getElementById("email").value;
-            const message = document.getElementById("message").value;
-
-            const webhookURL = 'https://discord.com/api/webhooks/1331583332798169098/uuGWRYrVQrMpebT4-wvHeH5o9fFCoOsmsLMwbPFU3bytJUYQd5I6v_T1U9fCpdl4G146'; // ここにWebhook URLを貼り付けます
-
-            const payload = {
-                content: `**新しいメッセージ**\n名前: ${name}\nお問い合わせ内容: ${message}`
-            };
-
-            fetch(webhookURL, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(payload)
-            })
-            .then(response => {
-                if (response.ok) {
-                    alert("メッセージが送信されました！");
-                } else {
-                    alert("エラーが発生しました。後ほど再試行してください。");
-                }
-            })
-            .catch(error => {
-                alert("送信中にエラーが発生しました。");
-            });
-        }
-    </script>
-</head>
-<body>
-    <h1>お問い合わせ</h1>
-    <form onsubmit="sendToDiscord(event)">
-        <label for="name">ユーザー名:</label>
-        <input type="text" id="name" name="name" required><br><br>
-
-        <label for="message">お問い合わせ内容:</label><br>
-        <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
-
-        <input type="submit" value="送信">
-    </form>
+    <li><a href="https://discord.gg/48DDgtwqfz">お問い合わせはこちらから</a></li>
     <footer>
         <p>&copy; 2025 さくら雑談王国. All Rights Reserved.</p>
     </footer>
