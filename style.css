@@ -99,8 +99,9 @@ footer p {
   color: blue;
   font-weight: bold;
   transition: box-shadow 0.3s ease;
+  box-shadow: none;  /* ← 初期状態では影なし */
 }
 
 .header-button-mouse:hover {
-  box-shadow: 0 0 10px rgba(0, 0, 255, 0.7);
+  box-shadow: 0 0 10px rgba(0, 0, 255, 0.7); /* ← マウスを載せたときだけ影を追加 */
 }
