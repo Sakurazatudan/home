@@ -7,6 +7,6 @@ window.onload = function() {
         setTimeout(function() {
             welcomeScreen.style.display = "none"; // 完全に非表示
             mainContent.classList.remove("hidden"); // メインコンテンツ表示
-        }, 800); // フェードアウト時間
-    }, 3000); // ウェルカムスクリーンの表示時間
+        }, 300); // フェードアウト時間
+    }, 3100); // ウェルカムスクリーンの表示時間
 };
