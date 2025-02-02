@@ -8,5 +8,5 @@ window.onload = function() {
             welcomeScreen.style.display = "none"; // 完全に非表示
             mainContent.classList.remove("hidden"); // メインコンテンツ表示
         }, 1000); // フェードアウト時間
-    }, 2000); // ウェルカムスクリーンの表示時間
+    }, 3400); // ウェルカムスクリーンの表示時間
 };
