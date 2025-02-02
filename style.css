@@ -89,3 +89,19 @@ footer p {
 .header-button:focus {
   box-shadow: 0 0 10px rgba(0, 0, 255, 0.7);
 }
+.header-button-mouse {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: white;
+  border: 2px solid blue;
+  border-radius: 5px;
+  text-decoration: none;
+  color: blue;
+  font-weight: bold;
+  transition: box-shadow 0.3s ease;
+}
+
+.header-button-mouse:hover,
+.header-button-mouse:focus {
+  box-shadow: 0 0 10px rgba(0, 0, 255, 0.7);
+}
