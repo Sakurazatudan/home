@@ -23,20 +23,36 @@
         <button onclick="checkLogin()">ログイン</button>
     </div>
 
-    <script>
-        function checkLogin() {
-            const adminId = document.getElementById("admin-id").value;
-            const password = document.getElementById("password").value;
+     <script>
+        async function hashPassword(password) {
+            let encoder = new TextEncoder();
+            let data = encoder.encode(password);
+            let hashBuffer = await crypto.subtle.digest("SHA-256", data);
+            let hashArray = Array.from(new Uint8Array(hashBuffer));
+            return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        }
+<script>
+        async function hashPassword(password) {
+            let encoder = new TextEncoder();
+            let data = encoder.encode(password);
+            let hashBuffer = await crypto.subtle.digest("SHA-256", data);
+            let hashArray = Array.from(new Uint8Array(hashBuffer));
+            return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        }
 
-            const correctId = "sakurazatudanoukoku";
-            const correctPassword = "sakurasakusaku";
+        async function login() {
+            let inputUsername = document.getElementById("username").value;
+            let inputPassword = document.getElementById("password").value;
+            let hashedInput = await hashPassword(inputPassword);
 
-            if (adminId === correctId && password === correctPassword) {
-                // ログイン成功：main.htmlへリダイレクト
-                window.location.href = "main.html";
+            // 事前に設定した ID & ハッシュ化されたパスワード
+            const correctUsername = "sakurazatudanoukoku";
+            const correctHash = "cd6502842c2c454327548e44f622f861f313eba73df0d86affc1e0ad6efd41fc"; // "mypassword123" の SHA-256
+
+            if (inputUsername === correctUsername && hashedInput === correctHash) {
+                window.location.href = "main.html"; // メインページに遷移
             } else {
-                // ログイン失敗
-                alert("IDまたはパスワードが間違っています。");
+                document.getElementById("message").innerText = "IDまたはパスワードが間違っています";
             }
         }
     </script>
