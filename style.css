@@ -44,7 +44,7 @@ header {
 header h1 {
     margin: 0;
     font-size: 2.5em;
-    color: #333;
+    color: #000000;
 }
 
 nav ul {
@@ -59,7 +59,7 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: #333;
+    color: #000000;
     font-weight: bold;
 }
 
