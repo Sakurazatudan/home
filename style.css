@@ -92,16 +92,20 @@ footer p {
 .header-button-mouse {
   display: inline-block;
   padding: 10px 20px;
-  background-color: white;
-  border: 2px solid blue;
+  background-color: white !important;  /* 必ず白背景 */
+  border: 2px solid blue !important;   /* 必ず青枠 */
   border-radius: 5px;
   text-decoration: none;
   color: blue;
   font-weight: bold;
-  transition: box-shadow 0.3s ease;
-  box-shadow: none;  /* ← 初期状態では影なし */
+  transition: all 0.3s ease;
+  
+  box-shadow: none !important;  /* 初期状態では影なし */
+  text-shadow: none !important; /* 初期状態では文字の影なし */
 }
 
 .header-button-mouse:hover {
-  box-shadow: 0 0 10px rgba(0, 0, 255, 0.7); /* ← マウスを載せたときだけ影を追加 */
+  box-shadow: 0 0 10px rgba(0, 0, 255, 0.7) !important; /* マウスを載せたときだけ影 */
+  background-color: rgba(0, 0, 255, 0.2) !important;  /* マウスを載せたときだけ背景を青 */
+  text-shadow: 0 0 5px rgba(0, 0, 255, 0.7) !important; /* マウスを載せたときだけ文字を光らせる */
 }
