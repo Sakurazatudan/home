@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <title>Discord認証結果</title>
+  <title>認証結果</title>
 </head>
 <body>
   <h1>認証中…</h1>
@@ -18,10 +18,10 @@
       throw new Error("No code in URL");
     }
 
-    // GASの認証API URL（自分のGAS URLに変える）
+    // GASのAPI URL（自分のURLに書き換えて）
     const GAS_API = 'https://script.google.com/macros/s/AKfycbyl98LWdCQoG8mJIF1nrVH3netTLhWeGKjmIuth58U_-i7tgAEuTbESUQoEMi3IaEmk/exec';
 
-    // codeをGASに渡してユーザー情報を取得
+    // codeをGASに送って認証処理
     fetch(`${GAS_API}?code=${encodeURIComponent(code)}`)
       .then(res => res.text())
       .then(text => {
