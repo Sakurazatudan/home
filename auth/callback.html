@@ -13,7 +13,7 @@
 
     if (code) {
       // GASのURL（自分のスクリプトURLに置き換えて）
-      const GAS_URL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
+      const GAS_URL = 'https://script.google.com/macros/s/AKfycbyl98LWdCQoG8mJIF1nrVH3netTLhWeGKjmIuth58U_-i7tgAEuTbESUQoEMi3IaEmk/exec';
       window.location.href = `${GAS_URL}?code=${encodeURIComponent(code)}`;
     } else {
       document.body.textContent = '認証コードがありません。';
