@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>Discord認証結果</title>
+</head>
+<body>
+  <h1>認証中…</h1>
+  <div id="result">読み込み中...</div>
+
+  <script>
+    // URLパラメータからcodeを取得
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get('code');
+
+    if (!code) {
+      document.getElementById('result').textContent = "認証コードがありません。";
+      throw new Error("No code in URL");
+    }
+
+    // GASの認証API URL（自分のGAS URLに変える）
+    const GAS_API = 'https://script.google.com/macros/s/AKfycbyPYFKNcVR1mpJH3R1e3EUhPLg_XtalkrbgEGfI-j8YvxjKkt6LnEe-324rD9OQrIns/exec';
+
+    // codeをGASに渡してユーザー情報を取得
+    fetch(`${GAS_API}?code=${encodeURIComponent(code)}`)
+      .then(res => res.text())
+      .then(text => {
+        document.getElementById('result').innerHTML = text;
+      })
+      .catch(err => {
+        document.getElementById('result').textContent = 'エラーが発生しました。';
+        console.error(err);
+      });
+  </script>
+</body>
+</html>
