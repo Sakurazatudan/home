@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-  <meta charset="UTF-8" />
-  <title>Redirecting...</title>
-</head>
+<head><meta charset="UTF-8"><title>Discord認証結果</title></head>
 <body>
-  <h1>認証処理中…</h1>
-
+  <h1>認証中…</h1>
+  <div id="result">読み込み中...</div>
   <script>
-    const params = new URLSearchParams(window.location.search);
-    const code = params.get('code');
-
-    if (code) {
-      // GASのURL（自分のスクリプトURLに置き換えて）
-      const GAS_URL = 'https://script.google.com/macros/s/AKfycbyl98LWdCQoG8mJIF1nrVH3netTLhWeGKjmIuth58U_-i7tgAEuTbESUQoEMi3IaEmk/exec';
-      window.location.href = `${GAS_URL}?code=${encodeURIComponent(code)}`;
-    } else {
-      document.body.textContent = '認証コードがありません。';
-    }
+    fetch('https://api.ipify.org?format=json')
+      .then(res => res.json())
+      .then(data => {
+        const userIp = data.ip;
+        const params = new URLSearchParams(window.location.search);
+        const code = params.get('code');
+        if (!code) {
+          document.getElementById('result').textContent = "認証コードがありません。";
+          throw new Error("No code in URL");
+        }
+        fetch(`https://script.google.com/macros/s/YOUR_GAS_ID/exec?code=${encodeURIComponent(code)}&ip=${encodeURIComponent(userIp)}`)
+          .then(res => res.text())
+          .then(text => {
+            document.getElementById('result').innerHTML = text;
+          })
+          .catch(() => {
+            document.getElementById('result').textContent = 'エラーが発生しました。';
+          });
+      });
   </script>
 </body>
 </html>
